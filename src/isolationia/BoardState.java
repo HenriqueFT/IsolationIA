@@ -16,7 +16,7 @@ public class BoardState {
             this.board = previous.board;
         }
         
-         public BoardState(BoardState previous,int i,int j){ //caso precisemos adicionar um novo lugar em menos pacos
+        public BoardState(BoardState previous,int i,int j){ //caso precisemos adicionar um novo lugar em menos pacos
             this.board = previous.board;
             if(this.board [i][j]!=1){
                 this.board [i][j]=1;
@@ -25,7 +25,7 @@ public class BoardState {
             }
         }
          
-         private void occupy(int i,int j){
+         public void occupy(int i,int j){
              if(this.board [i][j]!=1){
                 this.board [i][j]=1;
             }else{

@@ -18,9 +18,14 @@ public class Node {
         children.add(node);
     }
     
-    public void addChild(Node node){
+    public void addChild(int i,int j){
+        BoardState newState = new BoardState(this.parent.state,i,j);
+        Node node = new Node(newState);
         children.add(node);
     }
     
-    
+    public void addChild(Node node){
+        children.add(node);
+    }
+     
 }
