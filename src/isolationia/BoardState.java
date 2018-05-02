@@ -25,11 +25,19 @@ public class BoardState {
         }
         
         public BoardState(BoardState previous){ //caso precisemos apenas copiar o tabuleiro
-            this.board = previous.board;
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    this.board[i][j]=previous.board[i][j];
+                }
+            }
         }
         
         public BoardState(BoardState previous,byte x,byte y){ //caso precisemos adicionar um novo lugar em menos pacos
-            this.board = previous.board;
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    this.board[i][j]=previous.board[i][j];
+                }
+            }
             if(this.board [x][y]!=1){
                 this.board [x][y]=1;
             }else{
