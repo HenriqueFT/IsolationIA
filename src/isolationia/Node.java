@@ -18,8 +18,8 @@ public class Node {
         children.add(node);
     }
     
-    public void addChild(int i,int j){
-        BoardState newState = new BoardState(this.parent.state,i,j);
+    public void addChild(byte x,byte y){
+        BoardState newState = new BoardState(this.parent.state,x,y);
         Node node = new Node(newState);
         children.add(node);
     }
