@@ -2,9 +2,9 @@ package isolationia;
 
 public class BoardState {
         
-        private int xLength = 6;
-        private int yLength = 8;
-        private byte [][] board = new byte [xLength][yLength];
+        private final int xLength = 6;
+        private final int yLength = 8;
+        private final byte[][] board = new byte [xLength][yLength];
         
         public BoardState () { }
         
