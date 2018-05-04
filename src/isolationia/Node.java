@@ -18,7 +18,8 @@ public class Node {
         children.add(node);
     }
     
-    public void addChild(byte x,byte y){
+    public void addChild(int x, int y)
+    {
         //BoardState newState = new BoardState(this.parent.state,x,y);
         BoardState newState = this.parent.state.clone();
         newState.occupy(x, y);

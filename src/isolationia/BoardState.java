@@ -20,7 +20,7 @@ public class BoardState {
             board[p2.positionX][p2.positionY] = p2.getID();
         }
          
-        public void occupy(byte x,byte y){
+        public void occupy(int x, int y){
             if(this.board [x][y]!=1){
                 this.board [x][y]=1;
             }else{
