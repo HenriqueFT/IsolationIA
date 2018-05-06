@@ -21,7 +21,7 @@ public MiniMax(Tree tree,int depth){
         
     }
 public int evaluate(Tree arv, Player play){
-    int resp;
+    int resp=0;
     
     
     return resp;
