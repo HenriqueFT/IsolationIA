@@ -1,9 +1,7 @@
 package isolationia;
 
-import java.util.*;
 
-//esta classe devera conter comandos de mover as pecas,e ela serah a classe a qual as IA`s extenderao,entao
-//coloquemos aqui o q que tanto a IA utilizaria qquanto o que o humano utilizaria
+import java.util.*;
 
 public class Player {
     
@@ -43,12 +41,16 @@ public class Player {
         return positions;
     }
     
-    public void makeMove(){} //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore
+    public void makeMove(byte[] pos,BoardState board){ //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore
     //entao escolherah a melhor e farah em si o movimento,ja no caso do jogador humano teria de ser interativo
-    
-    
+    this.positionX = pos[0];
+    this.positionY = pos[1];
+    board.occupy(this.positionX ,this.positionY);
+
+    }
     public byte getID(){
         return id;
     }
-    
+
+        
 }
