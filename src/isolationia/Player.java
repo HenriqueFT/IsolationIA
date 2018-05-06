@@ -52,5 +52,12 @@ public class Player {
         return id;
     }
 
-        
+    public void turnAction(BoardState board){//para o Humano
+        //fazer tudo que deve ser feito na sua rodada,
+    }
+    
+    public void turnAction(BoardState board,Player adversary){//para a AI,precisa dos players para
+        //fazer tudo que deve ser feito na sua rodada.
+    }
+    
 }
