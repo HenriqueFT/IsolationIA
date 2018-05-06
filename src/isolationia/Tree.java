@@ -54,7 +54,27 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
             for (int i = 0; i < currentNode.getChildren().size(); i++) {
                 generateBranchesRecursive (currentNode.getChildren().get(i),depthControl,p1,p2,playerChoice);
             }
+            
+        }else{
+            if(depthControl==treeDepth || (currentNode.getChildren().size()==0)){//isso pode dar um problema depois
+                currentNode.value=evaluate();
+                
+                
+            }       
         }
+        if(currentNode.parent.value == null){
+            currentNode.parent.value=currentNode.value;
+        }
+        if(playerChoice){
+            if(currentNode.parent.value<currentNode.value){
+                currentNode.parent.value=currentNode.value;
+            }
+        }else{
+            if(currentNode.parent.value>currentNode.value){
+                currentNode.parent.value=currentNode.value;
+            
+        }
+        
     }
     
 }

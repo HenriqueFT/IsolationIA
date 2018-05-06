@@ -6,7 +6,7 @@ public class Node {
     BoardState state;
     Node parent;
     List<Node> children;
-    int value;
+    Integer value=null;
     public Node(){}
     
     private Node(BoardState newState){//para ser usada apenas pelos metodos aqui dentro
@@ -51,5 +51,8 @@ public class Node {
             }
         }
         this.value=resp;
+    }
+    public void evaluate(){
+    
     }
 }
