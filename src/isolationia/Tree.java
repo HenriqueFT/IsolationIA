@@ -56,25 +56,33 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
             }
             
         }else{
-            if(depthControl==treeDepth || (currentNode.getChildren().size()==0)){//isso pode dar um problema depois
-                currentNode.value=evaluate();
+            if(depthControl==treeDepth || (currentNode.getChildren().isEmpty())){//isso pode dar um problema depois
+                currentNode.value=evaluate(p1,p2,currentNode);
                 
                 
             }       
         }
-        if(currentNode.parent.value == null){
+        if(currentNode.parent.value == null){//se o pai não tiver valor, atribui o seu pro pai
             currentNode.parent.value=currentNode.value;
         }
         if(playerChoice){
-            if(currentNode.parent.value<currentNode.value){
+            if(currentNode.parent.value<currentNode.value){//se for a vez de max, escolhe o maior valor dentre os filhos
                 currentNode.parent.value=currentNode.value;
             }
         }else{
-            if(currentNode.parent.value>currentNode.value){
+            if(currentNode.parent.value>currentNode.value){//se for min, escolhe o menor dentre os filhos
                 currentNode.parent.value=currentNode.value;
             
         }
         
     }
     
+            
+        }
+    public int evaluate(Player p1,Player p2,Node current){
+        //a função de avaliação pega o tamanho da lista dos possiveis movientos e diminui
+        //do tamanho da lista do oponente
+        int resp=(p1.checkMoves(current.state).size())-(p2.checkMoves(current.state).size());
+        return resp;
+    }
 }
