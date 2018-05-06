@@ -13,7 +13,7 @@ public class HPlayerInterface extends Player {
    
 
 
-
+@Override
 public void turnAction (BoardState board) {
     Boolean ok =false;
     System.out.println("Sua vez");

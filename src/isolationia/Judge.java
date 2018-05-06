@@ -17,11 +17,11 @@ public class Judge {//apenas classe de administracao do jogo para dizer de quem 
             if(turn){
                 System.out.println("\nVez de Player de ID : " + idP1);
                 if(p1.checkMoves(board).size()==0){Judge.endGame(p1.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
-                p1.playTurn(board);
+                p1.turnAction(board);
             }else{
                 System.out.println("\nVez de Player de ID : " + idP2);
                 if(p2.checkMoves(board).size()==0){Judge.endGame(p2.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
-                p2.playTurn(board, p1);//p1 pq o p2 seria o humano entao se coloca adversario
+                p2.turnAction(board, p1);//p1 pq o p2 seria o humano entao se coloca adversario
             }
             turn = !turn;
         }

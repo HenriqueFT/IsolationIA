@@ -72,9 +72,7 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
         }else{
             if(currentNode.parent.value>currentNode.value){//se for min, escolhe o menor dentre os filhos
                 currentNode.parent.value=currentNode.value;
-            
         }
-        
     }
     
             
