@@ -5,6 +5,7 @@ public class Judge {//apenas classe de administracao do jogo para dizer de quem 
     
     private static Player idP1;
     private static Player idP2;
+    public static BoardState board;
      
     
     public Judge(Player id1,Player id2){this.idP1=id1;this.idP2=id2;}//soh caso queiramos mudar os nomes
