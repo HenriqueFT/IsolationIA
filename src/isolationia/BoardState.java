@@ -60,4 +60,24 @@ public class BoardState {
             sb.append(']');
             return sb.toString();
         }
+        
+        public String toString (Player p1,Player p2)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.append("[\n");
+            for (int i = 0; i < xLength; i++) {
+                for (int j = 0; j < yLength; j++) {
+                    if(p1.positionX == i && p1.positionY==j){
+                        sb.append(p1.getID()).append(",");
+                    }else if (p2.positionX == i && p2.positionY==j){
+                        sb.append(p2.getID()).append(",");
+                    }else{
+                        sb.append(this.board[i][j]).append(",");
+                    }
+                }
+                sb.append('\n');
+            }
+            sb.append(']');
+            return sb.toString();
+        }
 }
