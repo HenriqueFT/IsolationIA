@@ -18,36 +18,42 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
         return root;
     }
     
-    public Tree generateBranches(BoardState currentState,Player p1,Player p2){
-        int depthControl=0;
-        List<byte[]> possibleMoves;
-        possibleMoves = p1.checkMoves(currentState);
-        for (int i = 0; i < possibleMoves.size(); i++) {
-            this.root.addChild(possibleMoves.get(i)[0], possibleMoves.get(i)[1]);
-        }
+    public Node generateBranches(BoardState currentState,Player p1,Player p2){
+        generateBranchesRecursive(root,0,p1,p2,true);
         
-        Player currentPlayer = p2;
-        
-        while(depthControl<treeDepth){
-            for (int j = 0; j < root.getChildren().size(); j++) {
-                generateBranchesSupport(root.children.get(j),currentPlayer);
-            }
-            if(currentPlayer == p2){
-                currentPlayer=p1;
-            }else{
-                currentPlayer=p2;
-            }
-            depthControl++;
-        }
-         
-       return null;
+       return root;
     }
     
     public void generateBranchesSupport(Node node,Player p){
         List<byte[]> possibleMoves;
         possibleMoves = p.checkMoves(node.state);
         for (int i = 0; i < possibleMoves.size(); i++) {
-            this.root.addChild(possibleMoves.get(i)[0], possibleMoves.get(i)[1]);
+            node.addChild(possibleMoves.get(i)[0], possibleMoves.get(i)[1]);
+        }
+        
+    }
+    
+    public void generateBranchesRecursive (Node currentNode,int depthControl,Player p1,Player p2,Boolean playerChoice){
+        if(depthControl<treeDepth){
+            
+            Player currentPlayer;
+            
+            if(playerChoice){
+                currentPlayer=p1;
+            }else{
+                currentPlayer=p2;
+            }
+            
+            for (int j = 0; j < currentNode.getChildren().size(); j++) {
+                generateBranchesSupport(currentNode.getChildren().get(j),currentPlayer);
+            }  
+           
+            depthControl++;
+            playerChoice = !playerChoice;
+           
+            for (int i = 0; i < currentNode.getChildren().size(); i++) {
+                generateBranchesRecursive (currentNode.getChildren().get(i),depthControl,p1,p2,playerChoice);
+            }
         }
     }
     
