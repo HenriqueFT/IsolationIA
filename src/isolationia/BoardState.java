@@ -18,7 +18,7 @@ public class BoardState {
          {
             board[p1.positionX][p1.positionY] = p1.getID();
             board[p2.positionX][p2.positionY] = p2.getID();
-        }
+         }
          
         public void occupy(int x, int y){
             if(this.board [x][y]!=1){
