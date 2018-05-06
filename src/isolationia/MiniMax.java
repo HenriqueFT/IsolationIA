@@ -10,6 +10,24 @@ package isolationia;
  *
  * @author victor
  */
-public class Heuristica {
+public class MiniMax{
+    int depth;
+    Tree tree;
+    
+    
+public MiniMax(Tree tree,int depth){
+        this.depth=depth;
+        this.tree=tree;
+        
+    }
+public int evaluate(Tree arv, Player play){
+    int resp;
+    
+    
+    return resp;
+}
+    
+    
+    
     
 }

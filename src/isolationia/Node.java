@@ -6,7 +6,7 @@ public class Node {
     BoardState state;
     Node parent;
     List<Node> children;
-    
+    int value;
     public Node(){}
     
     private Node(BoardState newState){//para ser usada apenas pelos metodos aqui dentro
@@ -34,5 +34,22 @@ public class Node {
     public List<Node> getChildren(){
         return children;
     }
-     
+    public void min(){
+        int resp=this.getChildren().get(0).value;
+        for (int i = 0; i < (this.getChildren().size()-1); i++) {
+            if (resp>this.getChildren().get(i).value){
+                resp=this.getChildren().get(i).value;
+            }
+        }
+        this.value=resp;
+    }    
+    public void max(){
+        int resp=this.getChildren().get(0).value;
+        for (int i = 0; i < (this.getChildren().size()-1); i++) {
+            if (resp<this.getChildren().get(i).value){
+                resp=this.getChildren().get(i).value;
+            }
+        }
+        this.value=resp;
+    }
 }
