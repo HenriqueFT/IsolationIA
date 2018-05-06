@@ -2,9 +2,9 @@ package isolationia;
 
 public class BoardState {
         
-        private final int xLength = 6;
-        private final int yLength = 8;
-        private final byte[][] board = new byte [xLength][yLength];
+        private int xLength = 6;
+        private int yLength = 8;
+        private byte[][] board = new byte [xLength][yLength];
         
         public BoardState () { }
         
@@ -14,11 +14,9 @@ public class BoardState {
                 System.arraycopy(board[i], 0, this.board[i], 0, yLength);
         }
         
-         public BoardState (Player p1,Player p2)
-         {
-            board[p1.positionX][p1.positionY] = p1.getID();
-            board[p2.positionX][p2.positionY] = p2.getID();
-         }
+        public void initializeBoard(){
+            this.board = new byte [xLength][yLength];
+        } 
          
         public void occupy(int x, int y){
             if(this.board [x][y]!=1){
@@ -27,7 +25,7 @@ public class BoardState {
                 System.err.println("TENTANDO AVANCAR PARA CASA JA OCUPADA");
             }
         }
-         
+        
         public byte [][] getBoard(){
             return board;
         }
@@ -80,4 +78,7 @@ public class BoardState {
             sb.append(']');
             return sb.toString();
         }
+        
+        public void setboardX(int x){this.xLength=x;}
+        public void setboardY(int y){this.xLength=y;}
 }
