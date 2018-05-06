@@ -17,6 +17,11 @@ public class BoardState {
         public void initializeBoard(){
             this.board = new byte [xLength][yLength];
         } 
+        
+        public void putPlayers(Player p1,Player p2){
+            this.board[p1.positionX][p1.positionY]=1;
+            this.board[p2.positionX][p2.positionY]=1;
+        }
          
         public void occupy(int x, int y){
             if(this.board [x][y]!=1){
@@ -59,24 +64,22 @@ public class BoardState {
             return sb.toString();
         }
         
-        public String toString (Player p1,Player p2)
+        public void printBoard (Player p1,Player p2)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.append("[\n");
+            System.out.print("\n[\n");
             for (int i = 0; i < xLength; i++) {
                 for (int j = 0; j < yLength; j++) {
                     if(p1.positionX == i && p1.positionY==j){
-                        sb.append(p1.getID()).append(",");
+                        System.out.print(p1.getID()+",");
                     }else if (p2.positionX == i && p2.positionY==j){
-                        sb.append(p2.getID()).append(",");
+                        System.out.print(p2.getID()+",");
                     }else{
-                        sb.append(this.board[i][j]).append(",");
+                        System.out.print(this.board[i][j]+",");
                     }
                 }
-                sb.append('\n');
+                System.out.print("\n");
             }
-            sb.append(']');
-            return sb.toString();
+            System.out.print("\n]\n");
         }
         
         public void setboardX(int x){this.xLength=x;}

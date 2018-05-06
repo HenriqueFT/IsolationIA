@@ -31,17 +31,21 @@ public class IsolationIA {
                 switch(vsResp){
                     case 1: p1 = new HPlayerInterface((byte)0,(byte)(board.getLengthY()/2),true);
                             p2 = new Player((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);//trocar pela classe especifica da AI a ser usada aqui
+                            board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
                             break;
                     case 2: p1 = new HPlayerInterface((byte)0,(byte)(board.getLengthY()/2),true);
                             p2 = new Player((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);//trocar pela classe especifica da AI a ser usada aqui
+                            board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
                             break;      
                     case 3: p1 = new Player((byte)0,(byte)(board.getLengthY()/2),true);
                             p2 = new Player((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);
+                            board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
                     case 4: p1 = new HPlayerInterface((byte)0,(byte)(board.getLengthY()/2),true);
                             p2 = new HPlayerInterface((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);
+                            board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
                 }
             }else{
@@ -63,8 +67,8 @@ public class IsolationIA {
                     case 3: p1 = new Player((byte)0,(byte)(board.getLengthY()/2),true);//trocar pela classe especifica da AI a ser usada aqui
                             p2 = new Player((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);//trocar pela classe especifica da AI a ser usada aqui
                             Judge.startGame(board,p1,p2);
-                    case 4: p1 = new HPlayerInterface((byte)0,(byte)(board.getLengthY()/2),true);
-                            p2 = new HPlayerInterface((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);
+                    case 4: p1 = new HPlayerInterface((byte)(board.getLengthX()/2-1),(byte)0,true);
+                            p2 = new HPlayerInterface((byte)(board.getLengthX()/2) ,(byte)(board.getLengthY()-1),false);
                             Judge.startGame(board,p1,p2);
             }
         }

@@ -13,13 +13,13 @@ public class Judge {//apenas classe de administracao do jogo para dizer de quem 
     public static void startGame(BoardState board,Player p1, Player p2){//aqui programaremos o sistema de rodadas para cada um dos jogadores
         boolean turn = true;// 1 player 1, 0 player 2.//podemos randomizar isso depois mas tanto faz
         while(true){
-            System.out.println("\n"+board.toString(p1, p2)+"\n");
+            board.printBoard(p1, p2);
             if(turn){
-                System.out.println("\nVez de Player de ID : " + idP1);
+                System.out.println("\nVez de Player de ID : " + p1.getID());
                 if(p1.checkMoves(board).size()==0){Judge.endGame(p1.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
                 p1.turnAction(board);
             }else{
-                System.out.println("\nVez de Player de ID : " + idP2);
+                System.out.println("\nVez de Player de ID : " + p2.getID());
                 if(p2.checkMoves(board).size()==0){Judge.endGame(p2.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
                 p2.turnAction(board, p1);//p1 pq o p2 seria o humano entao se coloca adversario
             }
