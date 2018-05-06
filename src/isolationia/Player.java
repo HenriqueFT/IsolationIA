@@ -1,9 +1,7 @@
 package isolationia;
 
-import java.util.*;
 
-//esta classe devera conter comandos de mover as pecas,e ela serah a classe a qual as IA`s extenderao,entao
-//coloquemos aqui o q que tanto a IA utilizaria qquanto o que o humano utilizaria
+import java.util.*;
 
 public class Player {
     
@@ -43,37 +41,16 @@ public class Player {
         return positions;
     }
     
-     public List<byte[]> checkMoves(BoardState board,Player p){//funcao que retornarah tods as coordenadas q o player pode ir dada sua posicao
-        
-        byte available[] = new byte[2];
-        List<byte[]> positions = new ArrayList<byte[]>(0);
-        for (byte i = (byte) (p.positionX-1); i <= (p.positionX+1); i++) {
-            for (byte j = (byte) (p.positionY-1); j <= (p.positionY+1); j++) {
-                if(i>=0 && i< board.getLengthX()){  //ve se sai pelo lado
-                    if(j>=0 && j< board.getLengthY()){ //ve se sai por cima ou por baixo
-                        if(i!=p.positionX && j!=p.positionY){ //ve se ta olhando onde o jogador esta
-                            if(board.getBoard()[i][j]==0){ //ve se ja nao foi passado ou ocupado
-                                available[0]=i; available[1]=j;
-                                positions.add(available);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        return positions;
-    }
-    
-    
-    
-    
-    public void makeMove(){} //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore
+    public void makeMove(byte[] pos,BoardState board){ //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore
     //entao escolherah a melhor e farah em si o movimento,ja no caso do jogador humano teria de ser interativo
-    
-    
+    this.positionX = pos[0];
+    this.positionY = pos[1];
+    board.occupy(this.positionX ,this.positionY);
+
+    }
     public byte getID(){
         return id;
     }
-    
+
+        
 }
