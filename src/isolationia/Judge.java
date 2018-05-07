@@ -17,22 +17,22 @@ public class Judge {//apenas classe de administracao do jogo para dizer de quem 
             board.printBoard(p1, p2);
             if(turn){
                 System.out.println("\nVez de Player de ID : " + p1.getID());
-                if(p1.checkMoves(board).size()==0){Judge.endGame(p1.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
+                if(p1.checkMoves(board).size()==0){Judge.endGame(turn);}//Juiz antes da jogava ve se a pessoa perdeu ou nao
                 p1.turnAction(board);
             }else{
                 System.out.println("\nVez de Player de ID : " + p2.getID());
-                if(p2.checkMoves(board).size()==0){Judge.endGame(p2.getID());}//Juiz antes da jogava ve se a pessoa perdeu ou nao
+                if(p2.checkMoves(board).size()==0){Judge.endGame(turn);}//Juiz antes da jogava ve se a pessoa perdeu ou nao
                 p2.turnAction(board, p1);//p1 pq o p2 seria o humano entao se coloca adversario
             }
             turn = !turn;
         }
     }
     
-    public static void endGame(byte idLoser){//termina o jogo ao ser chamado
-        if(idLoser == idP1){
-            System.out.println("\n\nTHE WINNER IS PLAYER " +idP2);
+    public static void endGame(boolean turn){//termina o jogo ao ser chamado
+        if(turn){
+            System.out.println("\n\nTHE WINNER IS PLAYER P2");
         }else{
-            System.out.println("THE WINNER IS PLAYER " +idP1);
+            System.out.println("\n\nTHE WINNER IS PLAYER P1");
         }
         Scanner scan = new Scanner(System.in);
         System.out.println("Pressione qualquer tecla para sair.");

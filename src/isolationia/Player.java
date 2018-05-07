@@ -21,7 +21,7 @@ public class Player {
     
     public List<byte[]> checkMoves(BoardState board){//funcao que retornarah tods as coordenadas q o player pode ir dada sua posicao
         
-        byte available[] = new byte[3];
+        
         List<byte[]> positions = new ArrayList<byte[]>(0);
         int controlX=0;
         int controlY=0;
@@ -33,9 +33,9 @@ public class Player {
                         if(i==this.positionY && j==this.positionX){ //ve se ta olhando onde o jogador esta
                         }else{
                             if(board.getBoard()[i][j]==0){ //ve se ja nao foi passado ou ocupado
-                                    System.out.println(i + "|" + j);
+                                    byte available[] = new byte[3];
                                     available[0]=j; available[1]=i;
-                                    available=numbMapping(available,controlX,controlY);
+                                    numbMapping(available,controlX,controlY);
                                     positions.add(available);
                             }
                         }
@@ -49,32 +49,31 @@ public class Player {
         return positions;
     }
     
-    public byte[] numbMapping(byte[] available,int x,int y){//metodo que enumera aqueles que estao de acordo com os numeros de do numPad
+    public void numbMapping(byte[] thisArray,int x,int y){//metodo que enumera aqueles que estao de acordo com os numeros de do numPad
        if(x==0){if(y==0){
-            available[2]=7;
+            thisArray[2]=7;
         }}
        if(x==1){if(y==0){
-            available[2]=8;
+            thisArray[2]=8;
         }}
        if(x==2){if(y==0){
-            available[2]=9;
+            thisArray[2]=9;
         }}
        if(x==0){if(y==1){
-            available[2]=4;
+            thisArray[2]=4;
         }}
        if(x==2){if(y==1){
-            available[2]=6;
+            thisArray[2]=6;
         }}
        if(x==0){if(y==2){
-            available[2]=1;
+            thisArray[2]=1;
         }}
        if(x==1){if(y==2){
-            available[2]=2;
+            thisArray[2]=2;
         }}
        if(x==2){if(y==2){
-            available[2]=3;
+            thisArray[2]=3;
         }}
-        return available;
     }
     
     public void makeMove(byte[] pos,BoardState board){ //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore

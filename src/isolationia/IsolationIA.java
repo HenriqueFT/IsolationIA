@@ -43,10 +43,12 @@ public class IsolationIA {
                             p2 = new Player((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);
                             board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
+                            break;
                     case 4: p1 = new HPlayerInterface((byte)0,(byte)(board.getLengthY()/2),true);
                             p2 = new HPlayerInterface((byte)board.getLengthX(),(byte)(board.getLengthY()/2 +1),false);
                             board.putPlayers(p1, p2);
                             Judge.startGame(board,p1,p2);
+                            break;
                 }
             }else{
                 BoardState board = new BoardState();
