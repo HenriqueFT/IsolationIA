@@ -23,52 +23,58 @@ public class Player {
         
         byte available[] = new byte[3];
         List<byte[]> positions = new ArrayList<byte[]>(0);
-        for (byte i = (byte) (positionX-1); i <= (positionX+1); i++) {
-            for (byte j = (byte) (positionY-1); j <= (positionY+1); j++) {
+        int controlX=0;
+        int controlY=0;
+        for (byte i = (byte) (this.positionY-1); i <= (this.positionY+1); i++) {
+            controlX=0;
+            for (byte j = (byte) (this.positionX-1); j <= (this.positionX+1); j++) {
                 if(i>=0 && i< board.getLengthX()){  //ve se sai pelo lado
                     if(j>=0 && j< board.getLengthY()){ //ve se sai por cima ou por baixo
-                        if(i!=positionX && j!=positionY){ //ve se ta olhando onde o jogador esta
+                        if(i==this.positionY && j==this.positionX){ //ve se ta olhando onde o jogador esta
+                        }else{
                             if(board.getBoard()[i][j]==0){ //ve se ja nao foi passado ou ocupado
-                                System.out.println(i + "|" + j);
-                                available[0]=i; available[1]=j;
-                                numbMapping(available,i,j);
-                                positions.add(available);
+                                    System.out.println(i + "|" + j);
+                                    available[0]=j; available[1]=i;
+                                    available=numbMapping(available,controlX,controlY);
+                                    positions.add(available);
                             }
                         }
                     }
                 }
+                controlX++;
             }
+            controlY++;
         }
         
         return positions;
     }
     
-    public void numbMapping(byte[] available,byte i,byte j){//metodo que enumera aqueles que estao de acordo com os numeros de do numPad
-        if(i ==(byte)this.positionX-1 && j == (byte)this.positionY-1){
+    public byte[] numbMapping(byte[] available,int x,int y){//metodo que enumera aqueles que estao de acordo com os numeros de do numPad
+       if(x==0){if(y==0){
             available[2]=7;
-        }else if(i ==(byte) this.positionX && j == (byte)this.positionY-1){
+        }}
+       if(x==1){if(y==0){
             available[2]=8;
-        }
-        else if(i ==(byte) this.positionX+1 && j == (byte)this.positionY-1){
+        }}
+       if(x==2){if(y==0){
             available[2]=9;
-        }
-        else if(i == (byte)this.positionX-1 && j ==(byte) this.positionY){
+        }}
+       if(x==0){if(y==1){
             available[2]=4;
-        }
-        else if(i ==(byte) this.positionX+1 && j ==(byte) this.positionY){
+        }}
+       if(x==2){if(y==1){
             available[2]=6;
-        }
-        else if(i ==(byte) this.positionX-1 && j ==(byte) this.positionY+1){
+        }}
+       if(x==0){if(y==2){
             available[2]=1;
-        }
-        else if(i == (byte)this.positionX && j ==(byte) this.positionY+1){
+        }}
+       if(x==1){if(y==2){
             available[2]=2;
-        }
-        else if(i == (byte)this.positionX+1 && j == (byte)this.positionY+1){
+        }}
+       if(x==2){if(y==2){
             available[2]=3;
-        }else{
-            System.out.println("COME MEU CU");
-        }
+        }}
+        return available;
     }
     
     public void makeMove(byte[] pos,BoardState board){ //essa funcao deverah existir na versao do IA ,que utilizarah o checkMoves para fazer a arvore

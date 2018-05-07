@@ -19,11 +19,14 @@ public void turnAction (BoardState board) {
     System.out.println("Escolha seu proximo movimento entre : \n");
     List<byte[]> avMovs = super.checkMoves(board);
     byte [] nextMoveCoord = new byte[2];
+    byte []test = new byte[3];
     while(!ok){
+        
        for (int i = 0; i < avMovs.size(); i++) {
-           System.out.print(avMovs.get(i)[2] + ",");
+           test=avMovs.get(i);
+           System.out.print(test[2] + ",");
         }
-        System.out.println(".");
+       
         Scanner sc = new Scanner(System.in);
         int mov = sc.nextInt();   
         byte[] temp = new byte[3];
