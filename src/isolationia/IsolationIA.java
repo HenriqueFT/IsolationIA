@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package isolationia;
 
 import java.util.Scanner;

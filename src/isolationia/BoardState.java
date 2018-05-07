@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package isolationia;
 
 public class BoardState {
