@@ -12,7 +12,9 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
         root.state = currentState.clone();
         root.children = new ArrayList<Node>(0); //soh eh iniciado a lista tendo entrado na arvore(Comeca com 0,por na ter filhos)
     }
-    
+    public int getDepth(){
+        return treeDepth;
+    }
     public Node getRoot ()
     {
         return root;
@@ -72,7 +74,9 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
         }else{
             if(currentNode.parent.value>currentNode.value){//se for min, escolhe o menor dentre os filhos
                 currentNode.parent.value=currentNode.value;
+            
         }
+        
     }
     
             
@@ -83,4 +87,5 @@ public class Tree {//carregarah a arvore. Serah onde terah a parte de procura,e 
         int resp=(p1.checkMoves(current.state).size())-(p2.checkMoves(current.state).size());
         return resp;
     }
+   
 }

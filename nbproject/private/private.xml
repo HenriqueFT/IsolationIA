@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -14,3 +15,20 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/IsolationIA.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/Tree.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/Judge.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/BoardState.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/Player.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/Node.java</file>
+            <file>file:/C:/Users/victor/Documents/GitHub/IsolationIA/src/isolationia/MiniMax.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> b7f2699286edf46afbcddd52edcf254e5ab8d889
